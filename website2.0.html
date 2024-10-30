@@ -1,0 +1,973 @@
+# creditswebsite
+My work to build my professional portfolio website
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Wesley Swinnen - Editor</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+body {
+	background: #fff;
+}
+.accordion .card {
+	background: none;
+	border: none;
+}
+.accordion .card .card-header {
+	background: none;
+	border: none;
+	padding: .4rem 1rem;
+	font-family: "Roboto", sans-serif;
+}
+.accordion .card-header h2 span {
+	float: left;
+	margin-top: 10px;
+}
+.accordion .card-header .btn {
+	color: #2f2f31;
+	font-size: 1.04rem;
+	text-align: left;
+	position: relative;
+	font-weight: 500;
+	padding-left: 2rem;
+}
+.accordion .card-header i {
+	font-size: 1.2rem;
+	font-weight: bold;
+	position: absolute;
+	left: 0;
+	top: 9px;
+}
+.accordion .card-header .btn:hover {
+	color: #ff8300;
+}
+.accordion .card-body {
+	color: #324353;
+	padding: 0.5rem 3rem;
+	 column-gap: 0px;     /* Space between columns */
+    list-style: none;  /* Removes bullet points */
+    padding-left: 5;   /* Removes default padding */
+
+}
+
+.accordion .card-body ul {
+    column-count: 1;      /* Split into two columns */
+    column-gap: 0px;     /* Space between columns */
+    list-style: none;  /* Removes bullet points */
+    padding-left: 0;   /* Removes default padding */
+}
+
+.accordion .card-body li {
+    break-inside: avoid;  /* Prevents items from splitting across columns */
+    margin-bottom: 12px;
+   	padding: 5px 5px 5px 10px;
+    border-left: 0px solid #74bd30;  /* Your theme green */
+    transition: all 0.2s ease;
+}
+
+
+.accordion .card-body li:hover {
+    border-left: 3px solid #74bd30;
+    padding-left: 15px;
+}
+
+
+
+
+.page-title {
+	margin: 3rem 0 3rem 1rem;
+	font-family: "Roboto", sans-serif;
+	position: relative;
+}
+.page-title::after {
+	content: "";
+	width: 80px;
+	position: absolute;
+	height: 3px;
+	border-radius: 1px;
+	background: #73bb2b;
+	left: 0;
+	bottom: -15px;
+}
+.accordion .highlight .btn {
+	color: #74bd30;
+}
+.accordion .highlight i {
+	transform: rotate(180deg);
+}
+
+.credit-link {
+    color: #74bd30;  /* Same green as your theme */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.credit-link:hover {
+    color: #ff8300;  /* Same orange as your hover effects */
+    text-decoration: underline;
+}
+
+/* VIDEO PREVIEW */
+
+.video-preview {
+    display: none;
+    margin-top: 15px;
+    width: 100%;
+}
+
+li:hover .video-preview {
+    display: block;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* NETWORK LOGO */
+
+.network-logo {
+    height: 20px;  /* Adjust size as needed */
+    width: auto;
+    vertical-align: middle;
+    margin: 0 5px;
+    opacity: 0.8;  /* Makes logos slightly subtle */
+}
+
+.network {
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* HAS PLAYABLE VIDEO */
+
+/* Add this CSS for the play button styling */
+.has-video {
+    display: inline-flex;
+    align-items: center;
+}
+
+.play-icon {
+    color: #74bd30;  /* Your theme green */
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.has-video:hover .play-icon {
+    color: #ff8300;  /* Your orange hover color */
+}
+
+
+/* Top Bio Section */
+.bio-section {
+    margin: 4rem 0 3rem 1rem;  /* Increased top and bottom margins */
+    padding-bottom: 30px;
+}
+
+.bio-name {
+    font-family: "Roboto", sans-serif;
+    color: #2f2f31;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;  /* Added for line positioning */
+}
+
+.bio-name::after {
+    content: "";
+    width: 80px;
+    position: absolute;
+    height: 3px;
+    border-radius: 1px;
+    background: #73bb2b;  /* Same green as credits line */
+    left: 0;
+    bottom: -15px;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.7;  /* Increased line height for better readability */
+    color: #324353;
+    max-width: 90%;  /* This prevents the text from stretching too wide */
+}
+
+/* Side Bar Section */
+.sidebar {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 4rem;  /* Increased from 3rem to 4rem to match bio section */
+}
+
+/* Profile Photo Section */
+.profile-photo {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 60px !important;  /* Increased space after photo */
+}
+
+.sidebar .profile-photo {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 30px !important;  /* Changed from 80px to 40px */
+}
+
+.profile-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;  /* Adjust this percentage to move image up/down */
+    border: 3px solid #74bd30;
+}
+
+
+/* Awards Section */
+.Awards-section {
+    text-align: center;
+    padding: 0 15px;  /* Add some padding on sides */
+}
+
+.Awards-section h4 {
+    color: #2f2f31;
+    margin-bottom: 5px !important;  /* Reduced space between heading and awards */
+    font-size: 1.4rem;
+    position: relative;
+}
+
+.sidebar .Awards-section {
+    margin-top: 40px !important;  /* This adds space between photo and Awards */
+    text-align: center;
+}
+
+.sidebar .Awards-section h4 {
+    color: #2f2f31;
+    margin-bottom: 5px !important;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+
+/* Contact Side Bar */
+.contact-link {
+    color: #324353;  /* Same as your regular text color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #74bd30;  /* Your theme green */
+    text-decoration: underline;
+}
+
+.contact-link {
+    color: #324353;  /* Same as your regular text color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #74bd30;  /* Your theme green */
+    text-decoration: underline;
+}
+
+/* Awards Timeline */
+.awards-timeline {
+    padding-top: 0px;  /* Reduced space at top of timeline */
+}
+
+.award-item {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.award-year {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #2f2f31;
+    margin-bottom: 3px;  /* Reduced space between year and award text */
+}
+
+.award-text {
+    color: #6c63ff;  /* Purple color similar to your image */
+    line-height: 1.4;
+    padding: 0 15px;
+}
+
+.award-item:not(:last-child):after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px auto 0;
+}
+
+.award-link {
+    color: #6c63ff;  /* Same purple as your award text */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;  /* Makes the link take up the full width */
+}
+
+.award-link:hover {
+    color: #74bd30;  /* Your theme green */
+    text-decoration: underline;
+}
+
+/* Social Links Section */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px auto;
+    max-width: 140px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.social-links a {
+    color: #74bd30;
+    font-size: 40px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.social-links a:hover {
+	color: #ff8300;
+	transform: scale(1.1);
+}
+
+/* Individual icon colors on hover */
+.social-links a .fa-linkedin-square:hover {
+	color: #0077b5;
+}
+
+.social-links a .fa-imdb:hover {
+	color: #f5de50;
+}
+
+.social-links a .fa-vimeo-square:hover {
+	color: #1ab7ea;
+}
+
+.social-links a .fa-instagram:hover {
+	color: #e4405f;
+}
+
+.social-links a .fa-user-circle:hover {
+	color: #E74C3C;
+}
+
+/* SKILLS SIDE BAR SECTION */
+
+.software-logo {
+    width: 24px;  /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.skills-section {
+    width: 100%;
+    padding-right: 10px;
+}
+
+.skills-section ul {
+    padding-left: 15px;  /* Adjust this value to match contact alignment */
+}
+
+.skills-section li {
+    white-space: nowrap;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Credits Download */
+
+.download-section {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.download-button {
+    display: inline-block;
+    color: #74bd30;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.04rem;
+    border: 2px solid #74bd30;
+    border-radius: 5px;
+}
+
+.download-button:hover {
+    color: #ff8300;
+    border-color: #ff8300;
+    text-decoration: none;
+}
+
+.download-button i {
+    margin-right: 10px;
+}
+
+
+
+</style>
+<script>
+$(document).ready(function(){
+	// Add minus icon for collapse element which is open by default
+	$(".collapse.show").each(function(){
+		$(this).prev(".card-header").addClass("highlight");
+	});
+	
+	// Highlight open collapsed element 
+	$(".card-header .btn").click(function(){
+		$(".card-header").not($(this).parents()).removeClass("highlight");
+		$(this).parents(".card-header").toggleClass("highlight");
+	});
+});
+</script>
+</head>
+<body>
+<div class="container-lg">
+	<div class="row">
+
+ <!-- Left Sidebar -->
+		<div class="col-md-3 order-md-1">
+			<div class="sidebar">
+				<!-- Profile Photo -->
+				<div class="profile-photo">
+					<img src="https://previews.dropbox.com/p/thumb/ACZdqXAF4fmSpXTUyni_-pebJEs-y72fbWsGXyrYd2m-qUcTN_5gEpBgXj-dNNBt7IzH32ETOjtwYmdEHRckC2_flz-SDPqLHwJUn0mhdKVJYMBN2CcGEap6OGirGb3e6Dw644-FBl0WOWPKdR7LMRhs5wyRy4yyRYlsGqVmmoiREaueRaMfBK58CXSLtmiDz2zlFujUHwU09iFUso5t1IYSoIYk-8SJGzn_2Z3KgPe08jDxQFwUJ_hjfRSZZ5CWnDB3nXrDcVMoZCgt0UX-mk8u-0mY5xJl0lNAM-gEj2SEztrJW0WWa88ArYEhD3vzt2EJo_fGwV-zSj_ndgJxsKDV-gL75vxcooNsNsC2GsHkFcxC3z4LdAlse65ONNRJQn1kRu7wctrq9BR9Njb-__Wy/p.jpeg?is_prewarmed=true" alt="Wesley Swinnen">
+				</div>
+
+
+ <!-- Awards Section -->
+<div class="Awards-section">
+    <h4>AWARDS</h4>
+			<div class="awards-timeline">
+				<div class="award-item">
+					<div class="award-year">2024</div>
+					<a href="https://www.audiopub.org/2024audieawards-winners" target="_blank" class="award-text">
+						Audiobook of the Year / Audie Award / Surrender by Bono
+					</a>
+				</div>
+
+				<div class="award-item">
+					<div class="award-year">2022</div>
+					<a href="https://www.grammy.com/awards/65th-annual-grammy-awards-2022" target="_blank" class="award-text">
+						2 Best Audiobook Nominations / Grammy / Music Is History & Aristotle and Dante
+					</a>
+				</div>
+
+				<div class="award-item">
+					<div class="award-year">2012</div>
+					<a href="https://www.emmys.com/awards/nominees-winners/2012/outstanding-variety-music-or-comedy-special" target="_blank" class="award-text">
+						Outstanding Variety Special Nomination / Primetime Emmy / Tony Bennett: Duets II
+					</a>
+				</div>
+
+				<div class="award-item">
+					<div class="award-year">2011</div>
+					<a href="https://www.cbsnews.com/news/list-of-nominees-for-2011-daytime-emmy-awards/" target="_blank" class="award-text">
+						Outstanding Achievement in Multiple Camera Editing Nomination / Primetime Emmy / Rachael Ray Show
+					</a>
+				</div>
+			</div>
+		</div>
+
+<!-- Software Section -->
+<div class="skills-section">
+    <h4>Software</h4>
+		<ul>
+			<li><img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Media_Composer_Video_Editor_Software.jpg" class="software-logo" alt="Avid"> Avid Media Composer</li>
+			<li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/PT2019.svg/240px-PT2019.svg.png" class="software-logo" alt="Pro Tools"> Pro Tools</li>
+			<li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/240px-Adobe_Premiere_Pro_CC_icon.svg.png" class="software-logo" alt="Adobe"> Adobe Suite</li>
+			<li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/DaVinci_Resolve_Studio.png/240px-DaVinci_Resolve_Studio.png" class="software-logo" alt="DaVinci"> Davinci Resolve</li>
+		</ul>
+	</div>
+
+
+  <!-- Contact Info -->
+           <div class="contact-section">
+            <h4>Contact</h4>
+                 <p><i class="fa fa-envelope"></i> <a href="mailto:wswinnen.edit@gmail.com" class="contact-link">wswinnen.edit@gmail.com</a></p>
+                    <p><i class="fa fa-phone"></i> <a href="tel:5046697283" class="contact-link">(504) 669-7283</a></p>
+                    <p><i class="fa fa-map-marker"></i> Queens, New York</p>
+
+
+
+                    <div class="social-links">
+                        <!-- LinkedIn -->
+						<a href="https://www.linkedin.com/in/wesleyswinnen/" target="_blank">
+							<i class="fa fa-linkedin-square" title="LinkedIn Profile"></i>
+						</a>
+
+						<!-- IMDb -->
+						<a href="https://www.imdb.com/name/nm3089051/?ref_=nv_sr_srsg_0_tt_0_nm_3_in_0_q_Wesley%2520Swinnen" target="_blank">
+							<i class="fa fa-imdb" title="IMDb Profile"></i>
+						</a>
+
+						<!-- Vimeo -->
+						<a href="https://vimeo.com/wesleyswinnen" target="_blank">
+							<i class="fa fa-vimeo-square" title="Vimeo Channel"></i>
+						</a>
+
+						<!-- Instagram -->
+						  <a href="https://app.staffmeup.com/profile/wesleyswinnen" target="_blank">
+								<i class="fa fa-user-circle" title="Staff Me Up Profile"></i>
+								<!-- or alternatively: <i class="fa fa-briefcase" title="Staff Me Up Profile"></i> -->
+						</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Main Content (Accordion) -->
+        <div class="col-md-9 order-md-2">
+
+<!-- BIO SECTION -->
+			<div class="bio-section">
+				<h2 class="bio-name">Wesley Swinnen</h2>
+				<p class="bio-text">
+					Award-winning editor and post-production producer with over twenty years of experience in TV and film. Specializing in unscripted television, documentary, and multi-camera productions, I have helped shape compelling narratives for major networks including VH1, TLC, MTV, and PBS. My work has earned Grammy nominations and Emmy recognition, reflecting my commitment to storytelling excellence and technical precision. Ready to tell your story? Let's create something extraordinary together.
+				</p>
+			</div>
+
+<!-- CREDITS START HERE -->
+			<h1 class="page-title">Credits</h1>
+			<div class="accordion" id="accordionExample">
+
+<!-- DOCUSOAP SECTION -->
+            <div class="card">
+               <div class="card-header" id="headingOne">
+                  <h2 class="clearfix mb-0">
+                     <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i> DOCUSOAP</a>
+                  </h2>
+               </div>
+               <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                     <li><a href="https://www.imdb.com/title/tt7789780/?ref_=nv_sr_srsg_5_tt_8_nm_0_in_0_q_Unexpected" target="_blank" class="credit-link">Unexpected Season 2-4 & 6</a>
+						<span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/370px-TLC_Logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+						(Post Supervising Producer/Lead Editor)
+					</li>
+					 <li>
+						<!-- Title with IMDb link -->
+						<a href="https://www.imdb.com/title/tt7939774/?ref_=tt_mv_close" target="_blank" class="credit-link">
+							Laurieann Gibson: Beyond the Spotlight
+						</a>
+
+						<!-- Video preview button -->
+						<a href="#" class="video-toggle">
+							<i class="fa fa-play-circle play-icon"></i>
+						</a>
+
+						<span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_Lifetime_2020.svg/440px-Logo_Lifetime_2020.svg.png" alt="Lifetime" class="network-logo" style="height: 15px;">
+						</span>
+						(Supervising Editor)
+
+						<!-- Video embed -->
+						<div class="video-preview">
+							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1022723099?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Beyond The Spotlight Samples"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+						</div>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt12622790/?ref_=nv_sr_srsg_0_tt_7_nm_1_in_0_q_K%2520Michelle%2520My%2520Life" target="_blank" class="credit-link">K Michelle: My Life - Seasons 1 & 2</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="VH1" class="network-logo" style="height: 15px;">
+						</span>
+						(Lead Editor)
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt1718437/?ref_=fn_al_" target="_blank" class="credit-link">Love and Hip Hop: New York - Season 4,5 & 8</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="VH1" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt2224452/?ref_=nv_sr_srsg_0_tt_7_nm_1_in_0_q_Love%2520and%2520Hip%2520Hop%2520" target="_blank" class="credit-link">Love and Hip Hop: Atlanta - Season 2</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="VH1" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt3706642/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Love and Hip Hop: Hollywood - Seasons 1 & 26</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt7370908/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Love and Hip Hop: Miami - Seasons 1, 5 & 6</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+					 <li><a href="https://www.imdb.com/title/tt14068812/?ref_=nv_sr_srsg_11_tt_6_nm_2_in_0_q_Love%2520and%2520Hip%2520Hop%2520Holl" target="_blank" class="credit-link">VH1 Family Reunion: Love & Hip Hop Edition - Season 3</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt19732922/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_Caught%2520in%2520the%2520Act" target="_blank" class="credit-link">Caught in the Act: Unfaithful - Seasons 2 & 3</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/MTV_2021_%28brand_version%29.svg/440px-MTV_2021_%28brand_version%29.svg.png" alt="MTV" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+					 <li><a href="https://www.imdb.com/title/tt13990474/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_90%2520Day%2520Single" target="_blank" class="credit-link">90 Day: The Single Life - Season 1</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/370px-TLC_Logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+					 <li><a href="https://www.imdb.com/title/tt12872744/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Darcey & Stacey - Seasons 1 & 2</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/370px-TLC_Logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt10262696/?ref_=ttep_ov" target="_blank" class="credit-link">Life after Lockup Season 2</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Wetv-july-2024-logo.svg/440px-Wetv-july-2024-logo.svg.png" alt="WE" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt5965978/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Black Ink Crew: Chicago</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="VH1" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt2466126/?ref_=nv_sr_srsg_1_tt_7_nm_1_in_0_q_Chrissie%2520and%2520Mr.%2520Jones" target="_blank" class="credit-link">Chrissy & Mr. Jones</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="VH1" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+					 <li><a href="https://www.imdb.com/title/tt7552786/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Gucci Mane and Keyshia Ka'Oir: The Mane Event</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/BET_Logo.svg/300px-BET_Logo.svg.png" alt="BET" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt6021364/" target="_blank" class="credit-link">Money. Power. Respect.</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Wetv-july-2024-logo.svg/440px-Wetv-july-2024-logo.svg.png" alt="WE" class="network-logo" style="height: 15px;">
+						</span>
+						(Lead Editor)
+						</li>
+                     <li><a href="https://www.imdb.com/title/tt6686242/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Bringing Up Ballers</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/370px-TLC_Logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+						(Lead Editor)
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt20606552/" target="_blank" class="credit-link">Help! I'm in a Secret Relationship</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/MTV_2021_%28brand_version%29.svg/440px-MTV_2021_%28brand_version%29.svg.png" alt="MTV" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt3583604/?ref_=fn_al_tt_1" target="_blank" class="credit-link">This is Hot 97</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                     <li><a href="https://www.imdb.com/title/tt2738084/?ref_=fn_al_tt_2" target="_blank" class="credit-link">House of Fab</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Style_Network_logo.svg/350px-Style_Network_logo.svg.png" alt="Style" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+					 <li><a href="https://www.imdb.com/title/tt2257620/" target="_blank" class="credit-link">American Gypsiesy</a>
+					  <span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/National_Geographic_Wild_logo.svg/440px-National_Geographic_Wild_logo.svg.png" alt="NatGeo" class="network-logo" style="height: 15px;">
+						</span>
+					</li>
+                  </div>
+               </div>
+            </div>
+
+<!-- DOCUMENTARY SECTION -->
+<div class="card">
+			<div class="card-header" id="headingTwo">
+				<h2 class="mb-0">
+					<a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-chevron-circle-down"></i> DOCUMENTARY</a>
+				</h2>
+			</div>
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				<div class="card-body">
+					<ul>
+						<li><a href="https://www.imdb.com/title/tt12850838/?ref_=nv_sr_srsg_0_tt_3_nm_0_in_0_q_Hip%2520Hop%2520Homicides" target="_blank" class="credit-link">Hip Hop Homicides</a>
+						<span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Wetv-july-2024-logo.svg/440px-Wetv-july-2024-logo.svg.png" alt="WE" class="network-logo" style="height: 15px;">
+						</span>
+						(Post Producer/Lead Editor)
+						<li>
+							<a href="https://vimeo.com/manage/videos/36096852" target="_blank" class="credit-link has-video">
+								<i class="fa fa-play-circle play-icon"></i> Tony Bennett: Duets II (Great Performances)
+							</a>
+							<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/PBS_logo_2019.svg/440px-PBS_logo_2019.svg.png" alt="PBS" class="network-logo" style="height: 15px;">
+							</span>
+							(Nominated for Emmy in 2012)
+						</li>
+						<li>
+							<a href="https://vimeo.com/31617490?share=copy#t=0" target="_blank" class="credit-link has-video">
+								<i class="fa fa-play-circle play-icon"></i> Making of Lady is a Tramp
+							</a>
+							<span class="network">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/MTV_2021_%28brand_version%29.svg/440px-MTV_2021_%28brand_version%29.svg.png" alt="MTV" class="network-logo" style="height: 15px;">
+						</span>
+						</li>
+						<li><a href="https://www.imdb.com/title/tt6251076/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Half the Sky</a>
+						<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/300px-History_%282021%29.svg.png" alt="History" class="network-logo" style="height: 15px;">
+							</span>
+						(Additional Editing)
+						</li>
+						<li><a href="https://www.imdb.com/title/tt2057408/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Gettysburg: an American Story</a></li>
+						<li><a href="https://www.imdb.com/title/tt2221550/?ref_=ttep_ep6" target="_blank" class="credit-link">Risk Takers: Meredith Whitney</a>
+						<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/New_Bloomberg_Logo.svg/440px-New_Bloomberg_Logo.svg.png" alt="Bloomberg" class="network-logo" style="height: 15px;">
+							</span>
+						</li>
+						<li><a href="https://www.imdb.com/title/tt2436978/?ref_=fn_al_tt_1" target="_blank" class="credit-link">All-Access: Kentucky</a>
+							<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/440px-ESPN_wordmark.svg.png" alt="ESPN" class="network-logo" style="height: 15px;">
+							</span>
+						(Additional Editing)
+						</li>
+						<li><a href="https://www.imdb.com/title/tt2193091/?ref_=fn_al_tt_1" target="_blank" class="credit-link">Half the Sky</a>
+						<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/PBS_logo_2019.svg/440px-PBS_logo_2019.svg.png" alt="PBS" class="network-logo" style="height: 15px;">
+							</span>
+						</li>
+						<li>Aiming for Excellence
+						<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/WNET_Logo_2023.svg/440px-WNET_Logo_2023.svg.png" alt="WNET" class="network-logo" style="height: 15px;">
+							</span>
+						</li>
+						<li><a href="https://www.imdb.com/title/tt2302921/?ref_=fn_al_tt_1" target="_blank" class="credit-link">The Zen of Bennett</a>
+						<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tribeca_Festival_logo.svg/300px-Tribeca_Festival_logo.svg.png" alt="TribecaFilmFest" class="network-logo" style="height: 15px;">
+							</span>
+							(2012)
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+<!-- NARRATIVE Section -->
+				<div class="card">
+					<div class="card-header" id="headingSeven">
+						<h2 class="mb-0">
+							<a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+								<i class="fa fa-chevron-circle-down"></i> NARRATIVE
+							</a>
+						</h2>
+					</div>
+					<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+						<div class="card-body">
+							<li>
+								<a href="https://www.youtube.com/watch?v=-j4l29hFl0g" target="_blank" class="credit-link has-video">
+									<i class="fa fa-play-circle play-icon"></i> Night Driver
+								</a>
+								<span class="network">
+								<img src="https://previews.dropbox.com/p/thumb/ACc4oauJ7P8mkf_xtZzo39JpD66i2HJcx1KktF0ZjdJidNk-P2bUC-odBNQqDqC91V2A4uTGjd0ix7pAGlHzsiCHdx2rtivP60DasaHLaxF96K6skcgqlkszqkhcOVeV0yTwfjyXs4vGujtVonxcOdyaL1wSYbd94HrlX5doRrKUzuO2yfUb2so4qyvlXhT7Dg7fBge3PQOwtzKWkF_mhNAVoSkgY3WrU9LDhTA6XgA2-Vb_9yrWBwCgh2jW0Ylkage-yBRPBPIQOxxqi_IQuUlz9LWGnPpc8JaoK8jqM8NoNvdQrSdjkLK9XX4J9SXXFGPCcyMiQJqfRZ2qTriPP_gQ/p.png?is_prewarmed=true" alt="TrinidadFilmFest" class="network-logo" style="height: 15px;">
+							</span>
+							(2012)
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=0RvcTg0sW9g&list=PLz8IQTXZY4wMLqGiqi3l2ZGNW7INSYfck&index=8" target="_blank" class="credit-link has-video">
+									<i class="fa fa-play-circle play-icon"></i> In Between Men
+								</a>
+								<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/YouTube_social_white_square_%282017%29.svg/300px-YouTube_social_white_square_%282017%29.svg.png" alt="YouTube" class="network-logo" style="height: 15px;">
+							</span>
+							(Season 2)
+							</li>
+							<li>
+								<a href="https://www.imdb.com/title/tt2294857/" target="_blank" class="credit-link">Quick to Duck</a>
+							</li>
+						</div>
+					</div>
+				</div>
+
+<!-- AUDIOBOOK Section -->
+				<div class="card">
+					<div class="card-header" id="headingEight">
+						<h2 class="mb-0">
+							<a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+								<i class="fa fa-chevron-circle-down"></i> AUDIOBOOK EDITING HIGHLIGHTS
+							</a>
+						</h2>
+					</div>
+					<div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+						<div class="card-body">
+							<li><a href="https://www.audible.com/pd/Surrender-Audiobook/B09ZK5B962" target="_blank" class="credit-link">Surrender by Bono</a> (2024 Audiobook of the Year - Audie Award Winner)</li>
+							<li><a href="https://www.audible.com/pd/Music-Is-History-Audiobook/1980095280" target="_blank" class="credit-link">Music Is History by Questlove</a>  (2022 Grammy Nomination)</li>
+							<li><a href="https://www.audible.com/pd/Aristotle-and-Dante-Dive-into-the-Waters-of-the-World-Audiobook/1797128493" target="_blank" class="credit-link">Aristotle and Dante Dive into the Waters of the World</a> (2022 Grammy Nomination)</li>
+							<li><a href="https://www.audible.com/pd/Call-Me-by-Your-Name-Audiobook/B071H4FK2Y?loginAttempt=true" target="_blank" class="credit-link">Call Me By Your Name by André Aciman</a></li>
+							<li><a href="https://www.audible.com/pd/The-Woman-in-Me-Audiobook/B0BRBR3VHC" target="_blank" class="credit-link">The Woman In Me by Britney Spears</a></li>
+							<li><a href="https://www.audible.com/pd/Im-Glad-My-Mom-Died-Audiobook/B09VHWHJS2" target="_blank" class="credit-link">I'm Glad My Mom Died by Jennette McCurdy</a></li>
+							<li><a href="https://www.audible.com/pd/Paris-Audiobook/B0BCHBZDPX" target="_blank" class="credit-link">Paris: The Memoir by Paris Hilton</a></li>
+							<li><a href="https://www.audible.com/pd/What-a-Fool-Believes-Audiobook/B0CGJN8CJK" target="_blank" class="credit-link">What a Fool Believes: A Memoir by Michael McDonald</a></li>
+							<li><a href="https://www.audible.com/pd/From-Under-the-Truck-Audiobook/B0CWJFFXGZ" target="_blank" class="credit-link">From Under the Truck: A Memoir by Josh Brolin</a></li>
+							<li><a href="https://www.audible.com/pd/Hip-Hop-Is-History-Audiobook/B0CKLXS8SX" target="_blank" class="credit-link">Hip Hop Is History by Questlove</a></li>
+							<li><a href="https://www.audible.com/pd/It-Spanish-Edition-Audiobook/8401026865" target="_blank" class="credit-link">Eso (It) by Stephen King</a></li>
+							<li><a href="https://www.audible.com/pd/When-the-Sea-Came-Alive-Audiobook/B0CLFFHSG3" target="_blank" class="credit-link">When the Sea Came Alive: An Oral History of D-Day by Garrett Graff</a></li>
+							<li><a href="https://www.audible.com/pd/The-Only-Plane-in-the-Sky-Audiobook/1508295824" target="_blank" class="credit-link">Only Plane in the Sky: An Oral History of 9/11 by Garrett Graff</a></li>
+							<li><a href="https://www.audible.com/pd/Live-Long-and-Audiobook/B07FKQRT2J" target="_blank" class="credit-link">Live Long And . . .: What I Learned Along the Way by William Shatner</a></li>
+							<li><a href="https://www.audible.com/pd/Madam-Secretary-Audiobook/B00B02YTTK" target="_blank" class="credit-link">Madam Secretary: A Memoir by Madeleine Albright</a></li>
+							<li><a href="https://www.audible.com/pd/Republican-Rescue-Audiobook/1797134604" target="_blank" class="credit-link">Republican Rescue by Chris Christie</a></li>
+							<li><a href="https://www.audible.com/pd/The-Holy-Grail-of-Investing-Audiobook/B0CCB2LL7D" target="_blank" class="credit-link">The Holy Grail of Investing by Tony Robins</a></li>
+							<li><a href="https://www.audible.com/pd/Blood-in-the-Garden-Audiobook/B09FFT8Z43" target="_blank" class="credit-link">Blood in the Garden by Chris Herring</a></li>
+							<li><a href="https://www.audible.com/pd/LeBron-Audiobook/B0B4Z9C9GY" target="_blank" class="credit-link">Lebron by Jeff Benedict</a></li>
+							<li><a href="https://www.audible.com/pd/I-Know-What-Im-Doing-and-Other-Lies-I-Tell-Myself-Audiobook/B01C7KUGR2" target="_blank" class="credit-link">I know What I'm Doing by Jen Kirkman</a></li>
+							<li><a href="https://www.audible.com/pd/Hollywood-Wives-Audiobook/B0BRDGGW1C" target="_blank" class="credit-link">Hollywood Wives by Jackie Collins</a></li>
+							<li><a href="https://www.audible.com/ac/The-Next-365-Days-Audiobook/B09PFC5KRY" target="_blank" class="credit-link">365 Days: A Novel by Blanka Lipinska</a></li>
+							<!-- Add more audiobook credits as needed -->
+						</div>
+					</div>
+				</div>
+
+<!-- Cooking/Travel Section -->
+				<div class="card">
+					<div class="card-header" id="headingThree">
+						<h2 class="mb-0">
+							<a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								<i class="fa fa-chevron-circle-down"></i> COOKING/TRAVEL
+							</a>
+						</h2>
+					</div>
+					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						<div class="card-body">
+							<li>Kitchen Expedition
+								<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Travel_Channel_-_Logo.svg/440px-Travel_Channel_-_Logo.svg.png" alt="Travel" class="network-logo" style="height: 15px;">
+							</span>
+							(Lead Editor/Post Producer)
+							</li>
+							<li>Mike Colameco’s Real Food
+							<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/WNET_Logo_2023.svg/440px-WNET_Logo_2023.svg.png" alt="WNET" class="network-logo" style="height: 15px;">
+							</span>
+							</li>
+						</div>
+					</div>
+				</div>
+
+<!-- News Section -->
+				<div class="card">
+					<div class="card-header" id="headingFour">
+						<h2 class="mb-0">
+							<a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+								<i class="fa fa-chevron-circle-down"></i> NEWS
+							</a>
+						</h2>
+					</div>
+					<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+						<div class="card-body">
+							<li>
+								<a href="https://vimeo.com/1022713275/afc7ccffb4?share=copy" target="_blank" class="credit-link has-video">
+									<i class="fa fa-play-circle play-icon"></i> Static Television
+								</a>
+								(Cox 10 - Producer/Creator)
+							</li>
+							<li>Le Verite (CBS in New Orleans - Producer/Editor)</li>
+							<li>Heartbeat of the Hornets
+							<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/en/a/a3/CST_TV.png" alt="CST" class="network-logo" style="height: 15px;">
+								</span>
+							</li>
+							<li>
+								<a href="https://vimeo.com/26281622?share=copy" target="_blank" class="credit-link has-video">
+									<i class="fa fa-play-circle play-icon"></i> Timecode:NOLA
+								</a>
+								(Cox 10 New Orleans - Producer/Editor)
+							</li>
+						</div>
+					</div>
+				</div>
+
+<!-- MULTI CAM/STUDIO Section -->
+				<div class="card">
+					<div class="card-header" id="headingFive">  <!-- Changed from "collapseFive" to "headingFive" -->
+						<h2 class="mb-0">
+							<a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								<i class="fa fa-chevron-circle-down"></i> MULTI CAM/STUDIO
+							</a>
+						</h2>
+					</div>
+					<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+						<div class="card-body">
+							<li>Unexpected Season 3 Tell All
+								<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/370px-TLC_Logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+								</span>
+								(Co-Ep)
+							</li>
+							<li>Before The 90 Day: Tell All
+							<span class="network">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/370px-TLC_Logo.svg.png" alt="TLC" class="network-logo" style="height: 15px;">
+								</span>
+							</li>
+							<li>Love and Hip Hop Season 4 & 5 Reunion Specials (VH1)
+									<span class="network">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/VH1_logo.svg/440px-VH1_logo.svg.png" alt="VH1" class="network-logo" style="height: 15px;">
+								</span>
+							</li>
+						</div>
+					</div>
+				</div>
+
+<!-- Download Section -->
+				<div class="download-section">
+					<a href="https://www.dropbox.com/scl/fi/zvbyejkopzwbxmmq4gx4w/WesleySwinnenCredits.pdf?rlkey=7uqlxz0cqcf4sb6dqsr1gkcyf&dl=0" target="_blank" class="download-button">
+						<i class="fa fa-download"></i> Download Credits (PDF)
+					</a>
+					<a href="https://www.dropbox.com/scl/fi/yjnzvhn3c8iu0p1mt3tjt/Wesley-Swinnen-Resume.pdf?rlkey=qb40gk6qgtl7bxwbt3xb55ub9&dl=0" target="_blank" class="download-button">
+						<i class="fa fa-download"></i> Download Resume (PDF)
+					</a>
+				</div>
+
+<!-- COMMENTING OUT PROCESS SECTION FOR NOW
+				<div class="card">
+					<div class="card-header" id="headingSix">
+						<h2 class="mb-0">
+							<a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+								<i class="fa fa-chevron-circle-down"></i> PROCESS
+							</a>
+						</h2>
+					</div>
+					<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+						<div class="card-body">
+							<li>Additional Editing on King of Dirt (DIY Network)</li>
+						</div>
+					</div>
+				</div>
+END OF COMMENTED OUT PROCESS SECTION -->
+
+    </div>
+</div>
+</body>
+</html>
